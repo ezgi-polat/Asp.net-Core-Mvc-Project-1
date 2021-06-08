@@ -1,0 +1,20 @@
+﻿@model CategoryUpdateModel
+
+<form asp-action="Update" asp-controller="Category" asp-area="Admin" method="post" class="p-3 w-75 mx-auto shadow" enctype="multipart/form-data">
+    @* file için tyoksa Null döner *@
+    <input type="hidden" asp-for="@Model.Id" />@*ilgili modelin Id sini almak için*@
+    <div class="form-group">
+        <label>Category Name:</label>
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        <input asp-for="@Model.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <a asp-action="Index" asp-controller="Category" asp-area="Admin" class="btn btn-warning">Back</a>
+        <button type="submit" class="btn btn-primary ">Save</button>
+    </div>
+</form>
+@section JavaScript{
+    <script src="~/jqueryValid/jquery.validate.min.js"></script>
+    <script src="~/jqueryUnobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+}

@@ -1,0 +1,33 @@
+﻿@model Product
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="/img/@Model.İmage" class="w-100 img-thumbnail img-fluid" alt="@Model.Name" />
+        </div>
+        <div class="col-md-9">
+            @*@ViewBag.Session*@
+            @*@ViewBag.Cookie*@
+            <div class="card">
+                <div class="card-header">
+                    @Model.Name
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Name</h5>
+
+                    <p class="card-text">
+                        <strong>
+                            Categories:
+                        </strong><getCategoryName product-id="@Model.Id">
+                        </getCategoryName>
+                        <br />
+                        @Model.Price
+                    </p>
+                    <a asp-action="AddBasket" asp-controller="Home" asp-route-id="@Model.Id"          class="btn btn-primary float-sm-end ms-lg-1">Add Basket</a>
+                    <a asp-action="Index" asp-controller="Home" class="btn btn-danger float-sm-end">Go Back</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

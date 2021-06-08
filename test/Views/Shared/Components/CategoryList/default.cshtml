@@ -1,0 +1,18 @@
+﻿@model List<Category>
+
+<div class="list-group">
+    <a asp-action="Index" asp-controller="Home"  class="list-group-item list-group-item-action  @(ViewBag.CategoryId == null?"active" : "") ">
+       All Categories
+    </a>
+</div>
+
+@foreach (var item in Model)
+{
+    <div class="list-group">
+        <a asp-action="Index" asp-controller="Home" asp-route-categoryId="@item.Id" class="list-group-item list-group-item-action @(ViewBag.CategoryId?.ToString() == item.Id.ToString()?"active" : "") ">
+            @item.Name
+        </a>
+    </div>
+}
+
+
